@@ -1,0 +1,186 @@
+<app-navbar></app-navbar>
+<app-messages></app-messages>
+
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+<div class="container">
+  <!--<div class="container background">-->
+  <div class="row">
+
+      <div class="col">
+        <!-- --- old test    ------ <button (click)="showAddPerson = !showAddPerson" class="btn btn-dark mb-3">add me</button>-->
+        <!--<div *ngIf="addPerson">-->
+              <!--sike-->
+        <!--</div>-->
+        <h1>Person Registry</h1>
+
+            <div class="card1">
+                <img src="/assets/img/img_avatar.png" alt="Avatar" style="width:100%">
+                <h4><i class="em em-space_invader"></i><b>Join My Registry</b><i class="em em-robot_face"></i></h4>
+
+    <!--<button (click)="fetchDataFromServer()">Click to Start</button>-->
+
+<!--<ul>-->
+    <!--<li-->
+      <!--*ngFor="let person of people; let i = index">-->
+      <!--{{person.name}}-->
+      <!--{{person.age}}-->
+
+    <!--</li>-->
+<!--</ul>-->
+
+
+
+<!--<select>-->
+  <!--<option value-->
+    <!--*ngFor="let person of people; let i = index">-->
+    <!--{{person.name}}-->
+    <!--{{person.age}}-->
+  <!--</option>-->
+<!--</select>-->
+
+
+
+
+    <!--<div *ngIf="selectedPerson">-->
+
+      <!--<h2>{{selectedPerson.name | uppercase }} Details</h2>-->
+      <!--<div><span>name: </span>{{selectedPerson.name}}</div>-->
+    <!--</div>-->
+    <!--<label>age:-->
+      <!--<input [(ngModel)]="selectedPerson.age" placeholder="age"/>-->
+    <!--</label>-->
+
+
+
+
+
+
+    <!--form attempt 2-->
+
+        <form>
+          <div class="form-group1">
+            <input #nameInput id="name" type="text" class="form-control" placeholder="First Name" aria-label="Persons Name">
+          </div>
+
+          <div class="form-group2">
+            <input #lnameInput id="lname" type="text" class="form-control" placeholder="Last Name" aria-label="Persons Last Name">
+          </div>
+
+          <div class="form-group3">
+            <input #ageInput id="age" type="number" class="form-control" placeholder="How Young Are You?" aria-label="Persons Age">
+            <small id="text under" class="form-text text-muted">We will share your information publicly.</small>
+          </div>
+          <button class="btn btn-outline-secondary" type="button" (click)= "addPerson(nameInput,lnameInput,ageInput);">Submit</button>
+        </form>
+        </div>
+
+      </div>
+    </div>
+<div class="col" class="space"></div>
+
+  <div class="col" class="Peeps">
+    <h2>My Peeps</h2>
+        <ul style="list-style-type:none;">
+          <li *ngFor="let person of people; let i = index"
+              [class.selected]="true"
+              (click)="onSelect(person)">
+            <span class="badge" style="color:blue;font-size: 18px;">{{person.name}}</span> {{ person.lname }} is {{person.age}} yrs old
+            <button class="delete" title="delete person" (click)="delete(person)"><i class="em em-broken_heart"></i></button>
+          </li>
+        </ul>
+
+  </div>
+
+  <div class="col" class="space"></div>
+      <router-outlet></router-outlet>
+  <!--<app-heroes></app-heroes>-->
+
+</div>
+
+
+<!--<label for="email">Email Address:</label>-->
+<!--<input type="text" id="email" name="Email Box">-->
+
+
+
+
+<!--//reference ignore-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+
+    <!--<form [formGroup]="form" (ngSubmit)="onRegisterSubmit()">-->
+      <!--<div class="here">-->
+        <!--&lt;!&ndash; NAME &ndash;&gt;-->
+        <!--<div class="form-group">-->
+          <!--<label>Enter First Name</label>-->
+          <!--<input type="text" pTooltip="Please capitalize 1st letter" tooltipPosition="top" showDelay="500" formControlName="Fname" name="Fname" class="form-control" placeholder="First Name">-->
+          <!--<small class="form-text text-muted">*First Name Required*</small>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+          <!--<label>Enter Last Name</label>-->
+          <!--<input type="text" pTooltip="Please capitalize 1st letter" tooltipPosition="top" showDelay="500" formControlName="Lname" name="Lname" class="form-control" placeholder="Last Name">-->
+          <!--<small class="form-text text-muted">*Last Name Required*</small>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; EMAIL &ndash;&gt;-->
+        <!--<div class="form-group">-->
+          <!--<label>Email</label>-->
+          <!--<input type="email" formControlName="email" name="email" class="form-control" placeholder="example@domain.com">-->
+          <!--<small class="form-text text-muted">*Email Required*</small>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; PHONE &ndash;&gt;-->
+        <!--<div class="form-group">-->
+          <!--<label> Phone Number </label>-->
+          <!--<input type="phone" formControlName="phone" name="phone" class="form-control" placeholder="xxx-xxx-xxxx">-->
+          <!--<small class="form-text text-muted">*Phone Required*</small>-->
+        <!--</div>-->
+
+      <!--</div>-->
+
+      <!--<div class="subbox">-->
+        <!--<button type="submit" class="subb">Submit</button>-->
+      <!--</div>-->
+
+    <!--</form>-->
+
+
+
+
+
+
+
+    <!--<div class="column small-12 large-2">-->
+      <!--<label class="sbw_light">Title:</label><br />-->
+      <!--<select [(ngModel)]="passenger.Title">-->
+        <!--<option *ngFor="let person of people; let i = index"-->
+                <!--[value]="person.name"-->
+                <!--[attr.selected]="passenger.Title==person.name ? true : null">-->
+          <!--{{person.name}}-->
+        <!--</option>      </select>-->
+    <!--</div>-->
+
+
+
+    <!--<p>-->
+    <!--original dot walking task-->
+      <!--&lt;!&ndash;{{ people | json }}&ndash;&gt;-->
+      <!--{{ people[0].name }}-->
+
+      <!--and I'm {{ people[1].age }}-->
+      <!--years old-->
+      <!--&lt;!&ndash;{{ people.Name }}&ndash;&gt;-->
+      <!--&lt;!&ndash;{{ people.Age }}&ndash;&gt;-->
+    <!--</p>-->
+
+
+
+<!--<button (click)="editPerson(post)" class="btn btn-light"><i class="fa fa-remove">X  Update Button</i></button>-->
+
+
+
+
+
+
+
+
+
+<!--<app-user></app-user>-->
